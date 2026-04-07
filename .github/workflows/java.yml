@@ -1,0 +1,20 @@
+name: java-application
+on:
+    pull_request:
+     branches: 
+        - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: get code
+      uses: actions/checkout@v5
+
+    - name: set up java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '21' 
+         
+    - name: build maven package
+      run: mvn clean package
