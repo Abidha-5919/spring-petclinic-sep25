@@ -1,0 +1,13 @@
+name: java workflow
+on:
+        push:
+            branches:
+                - dev
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: get the code
+            uses: actions/checkout@v8
+          - name: build with maven
+            run: mvn clean package               
